@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="logo.png"></img>
+    </div>
+
+    <div class="box">
+        <div class="container">Faltam</div>
+        <div id="countdown" class="container"></div>
+        <div class="container">Para o lançamento do Silksong</div>
+
+        <script>
+            var releaseDate = new Date("Sep 4, 2025 11:00:00").getTime();
+
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var time = releaseDate - now;
+
+                var days = Math.floor(time / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((time % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML =
+                    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+                if (time < 0) {
+                    clearInterval(x);
+                    document.getElementById("countdown").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        </script>
+    </div class="box">
+    <a class="steambutton" onclick="window.location.href='https://store.steampowered.com/app/1030300/Hollow_Knight_Silksong/';">
+        <img src="steam.png"></img>
+        <span>Veja na steam</span>
+        <link>
+    </a class="steambutton">
+</body>
+</html>
